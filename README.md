@@ -1,13 +1,9 @@
 # Nuxt Content v3 Starter
 
-A modern starter template for Nuxt 3 with Content v3, featuring:
+A basic starter template for Nuxt 3 with Content v3, featuring:
 
 - 📝 **Nuxt Content v3** - Write in Markdown, Vue components, or MDC syntax
 - 🎨 **Tailwind CSS** - Utility-first CSS framework for rapid UI development
-- ✨ **Code Highlighting** - Beautiful syntax highlighting with Prism.js
-- 🔍 **Full-text Search** - Built-in search functionality
-- 📱 **Responsive Design** - Works on all device sizes
-- ⚡ **Fast Performance** - Built with performance in mind
 
 ## 🚀 Quick Start
 
