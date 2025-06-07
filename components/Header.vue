@@ -13,7 +13,7 @@ const navItems = [
 </script>
 
 <template>
-  <header class="fixed w-full z-50 transition-all duration-300" :class="{ 'bg-white shadow-md': isMenuOpen || $route.path !== '/' }">
+  <header class="fixed w-full z-50 transition-all duration-300 bg-white shadow-md">
     <div class="w-full">
       <div class="container mx-auto px-4 py-3 max-w-[70%]">
         <div class="flex justify-between items-center">

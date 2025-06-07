@@ -24,7 +24,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <div class="w-full">
     <article v-if="post" class="bg-white rounded-lg shadow-md p-8">
       <h1 class="text-4xl font-bold text-center mb-4">{{ post.title }}</h1>
       <p class="text-gray-600 text-center mb-8">
