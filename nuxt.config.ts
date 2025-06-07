@@ -4,10 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/content'],
   css: ['~/assets/css/main.css'],
+  content: {
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
-      autoprefixer: {},
     },
   },
 })
