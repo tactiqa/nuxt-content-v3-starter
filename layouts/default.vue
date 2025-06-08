@@ -4,7 +4,7 @@
     <div class="fixed inset-0 -z-10 bg-gradient-to-br from-white via-blue-50 to-blue-100"></div>
     <Header />
     <main class="flex-grow">
-      <div class="container mx-auto px-4 py-8 w-full max-w-[70%]">
+      <div class="mx-auto px-4 py-8 max-w-[80%] w-full">
         <slot />
       </div>
     </main>

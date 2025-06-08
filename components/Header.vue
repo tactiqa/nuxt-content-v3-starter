@@ -15,8 +15,8 @@ const navItems = [
 
 <template>
   <header class="fixed w-full z-50 transition-all duration-300 bg-white shadow-md">
-    <div class="w-full">
-      <div class="container mx-auto px-4 py-3 max-w-[70%]">
+    <div class="w-full flex justify-center">
+      <div class="mx-auto px-4 py-3 max-w-[80%] w-[80%]">
         <div class="flex justify-between items-center">
           <!-- Logo -->
           <NuxtLink to="/" class="text-xl font-bold text-gray-800">
@@ -29,8 +29,10 @@ const navItems = [
               v-for="item in navItems" 
               :key="item.path"
               :to="item.path"
-              class="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              :class="{ 'text-blue-600 font-medium': $route.path === item.path }"
+              :class="[
+                'text-lg font-bold text-gray-700 hover:text-blue-600 transition-colors duration-200',
+                $route.path === item.path ? 'text-blue-600 underline decoration-2 underline-offset-8' : ''
+              ]"
             >
               {{ item.name }}
             </NuxtLink>
@@ -65,8 +67,10 @@ const navItems = [
                 :key="item.path"
                 :to="item.path"
                 @click="isMenuOpen = false"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200"
-                :class="{ 'bg-gray-100 font-medium': $route.path === item.path }"
+                :class="[
+                  'block px-4 py-2 text-lg font-bold text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200',
+                  $route.path === item.path ? 'bg-gray-100 font-medium text-blue-600 underline decoration-2 underline-offset-8' : ''
+                ]"
               >
                 {{ item.name }}
               </NuxtLink>
