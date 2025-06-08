@@ -19,9 +19,9 @@ export default defineNuxtConfig({
   fonts: {
     families: [
       {
-        name: 'Roboto',
+        name: 'Inter',
         provider: 'google',
-        weights: [300, 400, 500, 700],
+        weights: [400, 500, 700],
         subsets: ['latin'],
         display: 'swap',
       }

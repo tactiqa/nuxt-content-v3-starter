@@ -69,8 +69,8 @@ const scrollToHeading = (id) => {
     <!-- Main content area -->
     <div class="md:w-3/4">
       <article v-if="post" class="bg-white rounded-lg shadow-md p-8">
-        <!-- <h1 class="text-4xl font-bold text-center mb-4">{{ post.title }}</h1> -->
-        <!-- <p class="text-gray-600 text-center mb-8">
+        <!-- <h1 class="text-4xl font-bold text-center mb-4">{{ post.title }}</h1>
+        <p class="text-gray-600 text-center mb-8">
           Published on: {{ new Date(post.date).toLocaleDateString() }} by {{ post.author }}
         </p> -->
         <img v-if="post.image" :src="post.image" :alt="post.title" class="w-full h-auto rounded-lg mb-8 object-cover max-h-96" />
