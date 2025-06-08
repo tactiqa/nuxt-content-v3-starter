@@ -8,9 +8,9 @@
     <section id="home" class="py-20 bg-gradient-to-br from-blue-50 to-white">
       <div class="container mx-auto px-4 py-12">
         <div class="text-center mb-12">
-          <h1 class="text-5xl font-bold text-gray-800 mb-4">Welcome to Nuxt Blog Starter</h1>
+          <h1 class="text-5xl font-bold text-gray-800 mb-4">Welcome to tactiQA - QA services</h1>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            A simple and elegant blog starter template built with Nuxt.js, Tailwind CSS, and Nuxt Content.
+            We provide a wide range of QA services to help you ensure the quality of your software products.
           </p>
           <div class="mt-8 space-x-4">
             <NuxtLink 

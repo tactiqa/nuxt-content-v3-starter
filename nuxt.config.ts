@@ -3,6 +3,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   modules: ['@nuxt/content', '@nuxt/fonts'],
+  vite: {
+    server: {
+      allowedHosts: true
+    }
+  },
   css: ['~/assets/css/main.css'],
   content: {
   },
