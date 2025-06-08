@@ -9,10 +9,14 @@ export default {
     './content/**/*.md'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
+      },
+    },
   },
   plugins: [
-    require('@tailwindcss/typography'), 
+    require('@tailwindcss/typography'),
   ],
 }
 
