@@ -1,14 +1,15 @@
 <script setup lang="ts">
+import Footer from '~/components/Footer.vue'
 // This will be automatically imported by Nuxt 3
 </script>
 
 <template>
-  <div>
+  <div class="mb-0 pb-0">
     <!-- Hero Section -->
-    <section id="home" class="py-20 bg-gradient-to-br from-blue-50 to-white">
-      <div class="container mx-auto px-4 py-12">
-        <div class="text-center mb-12">
-          <h1 class="text-5xl font-bold text-gray-800 mb-4">Welcome to tactiQA - QA services</h1>
+    <section id="home" class="pt-2 pb-4 bg-transparent">
+      <div class="max-w-2xl mx-auto px-4 py-10">
+        <div class="text-center mt-12 mb-12">
+          <h1 class="text-4xl font-medium text-gray-800 mb-4">Welcome to tactiQA - QA services</h1>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             We provide a wide range of QA services to help you ensure the quality of your software products.
           </p>
@@ -30,6 +31,20 @@
       </div>
     </section>
 
+    <!-- Decorative White Fading Wave -->
+    <div aria-hidden="true" style="margin-top:-2px;">
+      <div class="container mx-auto px-4">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-24" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="white-fade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff" stop-opacity="1" />
+              <stop offset="100%" stop-color="#fff" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <path d="M0,80 C360,160 1080,0 1440,80 L1440,120 L0,120 Z" fill="url(#white-fade)" />
+        </svg>
+      </div>
+    </div>
     <!-- Features Section -->
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
@@ -82,7 +97,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white">
+    <section id="contact" class="py-16 bg-white pb-0 mb-0">
       <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto">
           <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Get In Touch</h2>
@@ -152,8 +167,11 @@
         </div>
       </div>
     </section>
+    <Footer />
   </div>
 </template>
+
+
 
 <style scoped>
 /* Smooth scrolling for anchor links */

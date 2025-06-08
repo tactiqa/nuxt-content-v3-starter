@@ -1,8 +1,20 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+const isSolid = ref(false)
 const isMenuOpen = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
+onMounted(() => {
+  const onScroll = () => {
+    isSolid.value = window.scrollY > 10
+  }
+  window.addEventListener('scroll', onScroll, { passive: true })
+  onScroll()
+  // Clean up on destroy
+  onUnmounted(() => window.removeEventListener('scroll', onScroll))
+})
 
 const navItems = [
   { name: 'Home', path: '/#home' },
@@ -14,13 +26,14 @@ const navItems = [
 </script>
 
 <template>
-  <header class="fixed w-full z-50 transition-all duration-300 bg-white shadow-md">
+  <header :class="[isSolid ? 'bg-white shadow-md' : 'bg-transparent', 'fixed w-full top-0 left-0 z-50 transition-all duration-300']">
     <div class="w-full flex justify-center">
       <div class="mx-auto px-4 py-3 max-w-[80%] w-[80%]">
         <div class="flex justify-between items-center">
           <!-- Logo -->
-          <NuxtLink to="/" class="text-xl font-bold text-gray-800">
-            tactiQA
+          <NuxtLink to="/" class="flex items-center space-x-3 text-4xl font-semibold text-gray-800">
+            <img src="/images/tactiqa-logo.png" alt="tactiQA Logo" class="h-12 w-12 object-contain" />
+            <span>tactiQA</span>
           </NuxtLink>
 
           <!-- Desktop Navigation -->
@@ -30,7 +43,7 @@ const navItems = [
               :key="item.path"
               :to="item.path"
               :class="[
-                'text-lg font-bold text-gray-700 hover:text-blue-600 transition-colors duration-200',
+                'text-base font-bold text-gray-700 hover:text-blue-600 transition-colors duration-200',
                 $route.path === item.path ? 'text-blue-600 underline decoration-2 underline-offset-8' : ''
               ]"
             >

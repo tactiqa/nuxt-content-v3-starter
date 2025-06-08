@@ -1,0 +1,23 @@
+/* Animated blue gradient background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(120deg, #aeefff 0%, #b3e5fc 25%, #4fc3f7 55%, #81d4fa 80%, #e1f5fe 100%);
+  background-size: 400% 400%;
+  animation: moveGradient 6s ease-in-out infinite;
+  opacity: 1;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

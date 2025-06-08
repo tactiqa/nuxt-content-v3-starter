@@ -55,12 +55,44 @@ onMounted(() => {
   })
 })
 
+// Scrollspy: track which heading is in view
+import { ref, onMounted, onUnmounted } from 'vue'
+const activeTocId = ref(null)
+
+const handleScroll = () => {
+  if (!toc.value || toc.value.length === 0) return
+  let closest = null
+  let minDist = Infinity
+  toc.value.forEach(item => {
+    const el = document.getElementById(item.id)
+    if (el) {
+      const rect = el.getBoundingClientRect()
+      // Adjust threshold as needed (e.g., 80 for sticky header)
+      const dist = Math.abs(rect.top - 80)
+      if (rect.top < window.innerHeight && dist < minDist && rect.bottom > 0) {
+        minDist = dist
+        closest = item.id
+      }
+    }
+  })
+  if (closest) activeTocId.value = closest
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll()
+})
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+
 // Scroll to heading when clicking on TOC item
 const scrollToHeading = (id) => {
   const element = document.getElementById(id)
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' })
   }
+  activeTocId.value = id
 }
 </script>
 
@@ -84,44 +116,7 @@ const scrollToHeading = (id) => {
     
     <!-- Floating menu/sidebar -->
     <div class="md:w-1/4" v-if="post">
-      <div class="bg-white rounded-lg shadow-md p-6 sticky top-24 leading-tight">
-        <h3 class="text-lg font-semibold mb-4 text-gray-800 border-b pb-2">Table of Contents</h3>
-        <nav v-if="toc.length > 0" class="toc-nav">
-          <ul class="space-y-2">
-            <li v-for="item in toc" :key="item.id" 
-                :class="{'pl-4': item.level === 3}">
-              <a href="#" @click.prevent="scrollToHeading(item.id)" 
-                 class="text-blue-600 hover:text-blue-800 hover:underline block py-0 text-sm leading-tight"
-                 :class="{'font-medium': item.level === 2, 'text-sm': item.level === 3}">
-                {{ item.text }}
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <p v-else class="text-gray-500 text-sm">No sections found</p>
-        
-        <!-- Additional floating menu items -->
-        <div class="mt-6 pt-4 border-t border-gray-200">
-          <h4 class="text-sm font-medium text-gray-800 mb-3">Actions</h4>
-          <ul class="space-y-2">
-            <li>
-              <a href="#" class="flex items-center text-blue-600 hover:text-blue-800 text-sm">
-                <span class="mr-2">📄</span> Download PDF
-              </a>
-            </li>
-            <li>
-              <a href="#" class="flex items-center text-blue-600 hover:text-blue-800 text-sm">
-                <span class="mr-2">🖨️</span> Print Test Plan
-              </a>
-            </li>
-            <li>
-              <a href="#" class="flex items-center text-blue-600 hover:text-blue-800 text-sm">
-                <span class="mr-2">🔗</span> Share
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <TestplanSidebar :toc="toc" :post="post" />
     </div>
   </div>
 </template>
