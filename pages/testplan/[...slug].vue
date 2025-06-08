@@ -75,7 +75,7 @@ const scrollToHeading = (id) => {
         </p>
         <img v-if="post.image" :src="post.image" :alt="post.title" class="w-full h-auto rounded-lg mb-8 object-cover max-h-96" />
 
-        <ContentRenderer :value="post" class="prose max-w-none" />
+        <ContentRenderer :value="post" class="prose max-w-none leading-tight" />
       </article>
       <div v-else class="text-center text-gray-600 py-12">
         <p>Test plan not found.</p>
@@ -84,14 +84,14 @@ const scrollToHeading = (id) => {
     
     <!-- Floating menu/sidebar -->
     <div class="md:w-1/4" v-if="post">
-      <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+      <div class="bg-white rounded-lg shadow-md p-6 sticky top-24 leading-tight">
         <h3 class="text-lg font-semibold mb-4 text-gray-800 border-b pb-2">Table of Contents</h3>
         <nav v-if="toc.length > 0" class="toc-nav">
           <ul class="space-y-2">
             <li v-for="item in toc" :key="item.id" 
                 :class="{'pl-4': item.level === 3}">
               <a href="#" @click.prevent="scrollToHeading(item.id)" 
-                 class="text-blue-600 hover:text-blue-800 hover:underline block py-1 text-sm"
+                 class="text-blue-600 hover:text-blue-800 hover:underline block py-0 text-sm leading-tight"
                  :class="{'font-medium': item.level === 2, 'text-sm': item.level === 3}">
                 {{ item.text }}
               </a>

@@ -1,4 +1,9 @@
 <script setup lang="ts">
+// Define the layout for this page
+definePageMeta({
+  layout: 'testplan'
+})
+
 // Fetch test plan using the queryCollection API
 const { data: posts } = await useAsyncData('testplans', () => 
   queryCollection('testplan')
