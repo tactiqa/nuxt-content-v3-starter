@@ -15,6 +15,18 @@ export default defineContentConfig({
         image: z.string().optional()
       })
     }),
+    testplan: defineCollection({
+      type: 'page',
+      source: 'testplan/**/*.md',
+      schema: z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        date: z.string(),
+        author: z.string().optional(),
+        tags: z.array(z.string()).optional(),
+        image: z.string().optional()
+      })
+    }),
     // You could define other collections here, e.g., for general pages or authors
     pages: defineCollection({
       type: 'page',

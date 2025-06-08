@@ -7,6 +7,7 @@ const toggleMenu = () => {
 const navItems = [
   { name: 'Home', path: '/#home' },
   { name: 'Blog', path: '/blog' },
+  { name: 'Test Plan', path: '/testplan' },
   { name: 'About', path: '/#about' },
   { name: 'Contact', path: '/#contact' },
 ];
@@ -19,7 +20,7 @@ const navItems = [
         <div class="flex justify-between items-center">
           <!-- Logo -->
           <NuxtLink to="/" class="text-xl font-bold text-gray-800">
-            Nuxt Blog
+            tactiQA
           </NuxtLink>
 
           <!-- Desktop Navigation -->
