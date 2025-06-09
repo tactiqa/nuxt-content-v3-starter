@@ -3,26 +3,41 @@ import Footer from '~/components/Footer.vue'
 import ServiceCard from '~/components/ServiceCard.vue'
 import ServiceItemCard from '~/components/ServiceItemCard.vue'
 import { ref, onMounted } from 'vue'
-const services = ref([])
+
+interface ServiceItem {
+  description: string
+  icon: string
+}
+
+interface ServiceSection {
+  icon: string
+  items: Record<string, ServiceItem>
+}
+
+interface Service {
+  icon: string
+  title?: string
+  sections: Record<string, ServiceSection>
+}
+
+const services = ref<Service[]>([])
 const servicesError = ref('')
+
 onMounted(async () => {
   try {
     const res = await fetch('/landing_page_data/profesional_services.json')
     if (!res.ok) throw new Error('Fetch failed: ' + res.status)
     const data = await res.json()
-    // Transform nested object into array of cards with sections
-    services.value = Object.entries(data).map(([title, sectionsObj], idx) => ({
-      id: idx,
+    
+    // Transform the data to include titles and maintain the structure
+    services.value = Object.entries(data).map(([title, serviceData]) => ({
+      ...serviceData,
       title,
-      sections: Object.entries(sectionsObj).map(([sectionHeading, itemsObj]) => ({
-        heading: sectionHeading,
-        items: Object.entries(itemsObj).map(([label, description]) => ({ label, description }))
-      }))
+      sections: serviceData.sections || {}
     }))
-    console.log('DEBUG services:', services.value)
-  } catch (e) {
-    servicesError.value = 'Failed to load services.json: ' + e
-    console.error(servicesError.value)
+  } catch (error) {
+    servicesError.value = 'Failed to load services. Please try again later.'
+    console.error('Error loading services:', error)
   }
 })
 </script>
@@ -98,79 +113,68 @@ onMounted(async () => {
       </div>
     </section> -->
 
-    <!-- Services Section -->
-    <section id="services" class="py-16 bg-gray-50">
+    <!-- Items as Cards (QA & Software Testing Services) -->
+    <section id="services-cards-qa" class="py-12 bg-gradient-to-br from-blue-50 to-blue-100">
       <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">We offer a range of services to help your business grow and succeed in the digital age.</p>
-          <!--
-          <pre class="bg-gray-200 text-xs text-left p-2 mt-4 rounded max-w-2xl mx-auto overflow-x-auto">{{ JSON.stringify(services, null, 2) }}
-<span v-if="servicesError" class="text-red-600">{{ servicesError }}</span></pre>
-          -->
-        </div>
-        <div class="grid gap-8 grid-cols-1 md:grid-cols-2">
-          <ServiceCard v-for="(service, idx) in services"
-  :key="service.id || idx"
-  :service="service"
-/>
-        </div>
-      </div>
-    </section>
-
-    <!-- Duplicated Section: Items as Cards (QA & Software Testing Services) -->
-    <section id="services-cards-qa" class="py-16 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          <h2 class="text-4xl font-extrabold text-gray-600 mb-2">
             {{ services[0]?.title }}
           </h2>
         </div>
-        <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          <ServiceItemCard
-            v-for="(item, idx) in services[0] ? services[0].sections.flatMap(section => section.items) : []"
-            :key="item.label + idx"
-            :label="item.label"
-            :description="item.description"
-          />
+        <div class="grid gap-4 md:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <template v-for="(section, sectionKey) in services[0]?.sections" :key="sectionKey">
+            <ServiceItemCard
+              v-for="(item, itemKey) in section.items"
+              :key="`${sectionKey}-${itemKey}`"
+              :label="itemKey"
+              :description="item.description"
+              :icon="item.icon"
+            />
+          </template>
         </div>
       </div>
     </section>
 
-    <!-- Duplicated Section: Items as Cards (Test Automation Services) -->
-    <section id="services-cards-automation" class="py-16 bg-gray-50">
+    <!-- Items as Cards (Test Automation Services) -->
+    <section id="services-cards-automation" class="py-6 bg-gradient-to-br from-indigo-50 to-indigo-100">
       <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          <h2 class="text-4xl font-extrabold text-gray-600 mb-2">
             {{ services[1]?.title }}
           </h2>
         </div>
-        <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          <ServiceItemCard
-            v-for="(item, idx) in services[1] ? services[1].sections.flatMap(section => section.items) : []"
-            :key="item.label + idx"
-            :label="item.label"
-            :description="item.description"
-          />
+        <div class="grid gap-4 md:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <template v-for="(section, sectionKey) in services[1]?.sections" :key="sectionKey">
+            <ServiceItemCard
+              v-for="(item, itemKey) in section.items"
+              :key="`${sectionKey}-${itemKey}`"
+              :label="itemKey"
+              :description="item.description"
+              :icon="item.icon"
+            />
+          </template>
         </div>
       </div>
     </section>
 
-    <!-- Duplicated Section: Items as Cards (SDLC Services) -->
-    <section id="services-cards-sdlc" class="py-16 bg-gray-50">
+    <!-- Items as Cards (SDLC Services) -->
+    <section id="services-cards-sdlc" class="py-6 bg-gradient-to-br from-blue-100 to-blue-200">
       <div class="max-w-7xl mx-auto px-4">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+        <div class="text-center mb-6">
+          <h2 class="text-4xl font-extrabold text-gray-600 mb-2">
             {{ services[2]?.title }}
           </h2>
         </div>
-        <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          <ServiceItemCard
-            v-for="(item, idx) in services[2] ? services[2].sections.flatMap(section => section.items) : []"
-            :key="item.label + idx"
-            :label="item.label"
-            :description="item.description"
-          />
+        <div class="grid gap-4 md:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <template v-for="(section, sectionKey) in services[2]?.sections" :key="sectionKey">
+            <ServiceItemCard
+              v-for="(item, itemKey) in section.items"
+              :key="`${sectionKey}-${itemKey}`"
+              :label="itemKey"
+              :description="item.description"
+              :icon="item.icon"
+            />
+          </template>
         </div>
       </div>
     </section>
@@ -198,7 +202,7 @@ onMounted(async () => {
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white pb-0 mb-0">
+    <section id="contact" class="py-12 bg-white pb-0 mb-0">
       <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto">
           <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Get In Touch</h2>
