@@ -9,7 +9,7 @@ import Footer from '~/components/Footer.vue'
     <section id="home" class="pt-2 pb-4 bg-transparent">
       <div class="max-w-2xl mx-auto px-4 py-10">
         <div class="text-center mt-12 mb-12">
-          <h1 class="text-4xl font-medium text-gray-800 mb-4">Welcome to tactiQA - QA services</h1>
+          <h1 class="text-4xl font-medium text-white mb-4 drop-shadow-md">Welcome to tactiQA - QA services</h1>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             We provide a wide range of QA services to help you ensure the quality of your software products.
           </p>
@@ -74,7 +74,7 @@ import Footer from '~/components/Footer.vue'
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-50">
+    <section id="testplan" class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto">
           <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">About Us</h2>

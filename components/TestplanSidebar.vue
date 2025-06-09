@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-white rounded-lg shadow-md p-6 sticky top-24 leading-tight">
+  <div class="bg-white rounded-lg shadow-md p-6 sticky top-24 leading-snug">
     <h3 class="text-lg font-semibold mb-4 text-gray-800 border-b pb-2">Table of Contents</h3>
     <nav v-if="toc && toc.length > 0" class="toc-nav">
       <ul class="space-y-2">
         <li v-for="item in toc" :key="item.id" :class="{'pl-4': item.level === 3}">
           <a href="#" @click.prevent="scrollToHeading(item.id)"
             :class="[
-              'text-gray-800 hover:text-gray-900 block py-0 text-sm leading-tight font-medium',
+              'text-gray-800 hover:text-gray-900 block py-0 text-sm leading-none font-medium',
               { 'text-sm': item.level === 3, 'bg-gray-800': activeTocId === item.id, 'text-white': activeTocId === item.id }
             ]">
             {{ item.text }}
