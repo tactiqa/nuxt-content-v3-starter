@@ -1,4 +1,4 @@
-# Nuxt Content v3 Starter
+# Nuxt-Content-v3 - Clean starter.
 
 A basic starter template for Nuxt 3 with Content v3, featuring:
 
