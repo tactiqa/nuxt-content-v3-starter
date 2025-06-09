@@ -1,0 +1,46 @@
+{
+  "Quality Assurance and Software Testing Services": {
+      "Testing Execution": {
+          "Design and Execute Test Plans": "Design and execute detailed test plans, cases, and scripts for functional, regression, integration, performance, and exploratory testing.",
+          "Provide Specialized Expertise": "Provide expertise in API/backend testing, microservices testing, AI-driven testing, and data validation.",
+          "Manage Manual and Exploratory Testing": "manage manual and exploratory testing where automation isn’t suitable."
+      },
+      "Strategy and Planning": {
+        "Develop End-to-End QA Frameworks": "Develop end-to-end QA frameworks tailored to business goals and industry standards",
+        "Conduct Risk Assessments": "Conduct risk assessments and implement targeted testing strategies for high-pressure environments."
+    },
+      "Governance and Insights": {
+          "Establish and Track KPIs": "Establish and track quality KPIs (test coverage, defect escape rate) for data-driven insights and executive reporting."
+      }
+  },
+  "Test Automation Services": {
+    "Automation Execution": {
+      "Design and Implement Automated Tests": "Design and implement automated tests for APIs, microservices, and backend systems.",
+      "Integrate Tests into CI/CD Pipelines": "Integrate automated tests into CI/CD pipelines (e.g., Jenkins) for continuous feedback and faster releases."
+    },
+    "Optimization and Maintenance": {
+      "Analyze and Enhance Test Coverage": "Analyze and enhance test automation coverage to align with critical business use cases and risk areas.",
+      "Ensure Efficiency and Scalability": "Ensure efficiency, reliability, and scalability of existing automation suites."
+    },
+    "Strategy and Framework": {
+        "Define Scalable Automation Strategies": "Define scalable automation strategies (based on the Test Pyramid) and select optimal tools (Playwright, Puppeteer, Postman, REST APIs).",
+        "Build and Maintain Custom Frameworks": "Build and maintain custom automation frameworks for specific tech stacks and architectures."
+      }
+    },
+
+    "SDLC Services": {
+      "Full Lifecycle Oversight": {
+        "Manage Entire Process": "Manage the entire software development process from requirements to deployment, resolving bottlenecks to ensure smooth execution.",
+        "Ensure Cross-Team Coordination": "Facilitate collaboration between development, QA, and operations teams for aligned goals."
+      },
+      "Quality Integration": {
+        "Shift-Left QA Practices": "Embed QA practices early in the development lifecycle (Shift-Left approach) for proactive defect prevention.",
+        "Continuous Quality Monitoring": "Monitor quality metrics throughout the SDLC to ensure consistent standards."
+      },
+      "Process Optimization": {
+        "Streamline Workflows": "Streamline development and testing workflows to improve efficiency and reduce delays.",
+        "Release Management": "Oversee release management for seamless and high-quality deployments.",
+        "Enforce Engineering Rigor": "Enforce engineering rigor through code reviews, standards, and technical debt mitigation."
+      }
+    }
+}
