@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "icon": "mdi:magnify",
+    "title": "Software Testing Activities",
+    "description": "Focused on defect identification and product validation",
+    "items": [
+      "Requirements Analysis: Reviewing specifications to identify testable requirements and gaps",
+      "Test Planning: Defining scope, objectives, resources, schedules, and risk mitigation strategies",
+      "Test Design: Creating test cases, scenarios, and data for functional/non-functional testing",
+      "Test Execution: Running tests manually or via tools, logging results, and comparing outcomes",
+      "Defect Management: Reporting bugs with steps to reproduce, severity, and tracking fixes",
+      "Specialized testing including performance, security, compatibility, and accessibility",
+      "Regression testing to ensure updates don't break existing functionality",
+      "User Acceptance Testing (UAT) Support",
+      "Test Closure: Summarizing results and documenting lessons learned"
+    ]
+  },
+  {
+    "id": 2,
+    "icon": "mdi:shield-check",
+    "title": "Quality Assurance (QA) Activities",
+    "description": "Process-oriented to prevent defects and ensure standards",
+    "items": [
+      "Early Involvement: Participating in requirement gathering to identify risks early",
+      "Process Design: Establishing quality standards and testing guidelines",
+      "Documentation: Maintaining test policies, strategies, and traceability matrices",
+      "Audits & Reviews: Checking adherence to processes and root-cause analysis",
+      "Continuous Improvement: Analyzing metrics and refining workflows",
+      "Team Collaboration: Bridging gaps between developers, testers, and business teams"
+    ]
+  },
+  {
+    "id": 3,
+    "icon": "mdi:robot-happy",
+    "title": "Test Automation Activities",
+    "description": "Enhancing efficiency through tools and scripting",
+    "items": [
+      "Framework Development: Designing reusable automation architectures",
+      "Script Creation & Execution for regression, smoke, and performance tests",
+      "CI/CD Integration with tools like Jenkins",
+      "Test Data & Environment Automation",
+      "Script Maintenance and updates for new features",
+      "Tool Evaluation and selection for API, UI, or load testing"
+    ]
+  }
+]

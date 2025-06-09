@@ -1,6 +1,21 @@
 <script setup lang="ts">
 import Footer from '~/components/Footer.vue'
 // This will be automatically imported by Nuxt 3
+import { ref, onMounted } from 'vue'
+const services = ref([])
+const servicesError = ref('')
+onMounted(async () => {
+  try {
+    const res = await fetch('/landing_page_data/services.json')
+    if (!res.ok) throw new Error('Fetch failed: ' + res.status)
+    const data = await res.json()
+    services.value = data.services || data
+    console.log('DEBUG services:', services.value)
+  } catch (e) {
+    servicesError.value = 'Failed to load services.json: ' + e
+    console.error(servicesError.value)
+  }
+})
 </script>
 
 <template>
@@ -46,7 +61,7 @@ import Footer from '~/components/Footer.vue'
       </div>
     </div>
     <!-- Features Section -->
-    <section class="py-16 bg-white">
+    <!-- <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
@@ -71,8 +86,35 @@ import Footer from '~/components/Footer.vue'
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">We offer a range of services to help your business grow and succeed in the digital age.</p>
+          <!--
+          <pre class="bg-gray-200 text-xs text-left p-2 mt-4 rounded max-w-2xl mx-auto overflow-x-auto">{{ JSON.stringify(services, null, 2) }}
+<span v-if="servicesError" class="text-red-600">{{ servicesError }}</span></pre>
+          -->
+        </div>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div v-for="(service, idx) in services" :key="service.id || idx" class="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="mb-4">
+              <span class="inline-flex items-center justify-center rounded-full bg-blue-100 h-14 w-14">
+                <Icon :name="service.icon" class="w-8 h-8 text-blue-600" />
+              </span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ service.title }}</h3>
+            <p class="text-gray-500 mb-2">{{ service.description }}</p>
+            <ul v-if="service.items && service.items.length" class="text-left list-disc list-inside text-gray-700 text-sm mt-2">
+              <li v-for="(item, i) in service.items" :key="i">{{ item }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- About Section -->
     <section id="testplan" class="py-16 bg-white">
       <div class="container mx-auto px-4">
