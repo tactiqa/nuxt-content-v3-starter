@@ -48,18 +48,22 @@ onMounted(async () => {
     <!-- Hero Section -->
     <section id="home" class="pt-2 pb-4 bg-transparent">
       <div class="max-w-2xl mx-auto px-4 py-10">
-        <div class="text-center mt-12 mb-12">
-          <h1 class="text-4xl font-medium text-white mb-4 drop-shadow-md">Welcome to tactiQA - QA services</h1>
+        <div class="text-center pt-16 pb-20">
+          <h1 class="text-5xl md:text-5xl font-bold text-white mb-6 drop-shadow-md leading-tight">
+            <span class="whitespace-nowrap">Elevate Your Software Quality</span><br>
+            <span class="whitespace-nowrap">to New Heights</span>
+            <!-- <span class="block text-4xl md:text-5xl font-semibold text-blue-100 mt-2">QA & Testing Services</span> -->
+          </h1>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            We provide a wide range of QA services to help you ensure the quality of your software products.
+            Transforming software delivery through expert QA, Automation, SDLC, and Agile Process optimization.
           </p>
           <div class="mt-8 space-x-4">
-            <NuxtLink 
-              to="/blog" 
+            <a 
+              href="#services-cards-qa" 
               class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors inline-block"
             >
-              Read Our Blog
-            </NuxtLink>
+              Explore Services
+            </a>
             <a 
               href="#contact" 
               class="bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg transition-colors inline-block"
@@ -85,34 +89,6 @@ onMounted(async () => {
         </svg>
       </div>
     </div>
-    <!-- Features Section -->
-    <!-- <section class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-3">Nuxt 3</h2>
-            <p class="text-gray-600">
-              Built on the latest version of Nuxt, providing a modern and performant framework for your blog.
-            </p>
-          </div>
-          
-          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-3">Tailwind CSS</h2>
-            <p class="text-gray-600">
-              Styled with Tailwind CSS for rapid UI development and easy customization.
-            </p>
-          </div>
-          
-          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-3">Nuxt Content</h2>
-            <p class="text-gray-600">
-              Powered by Nuxt Content for easy content management using Markdown files.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
     <!-- Items as Cards (QA & Software Testing Services) -->
     <section id="services-cards-qa" class="py-12 bg-gradient-to-br from-blue-50 to-blue-100">
       <div class="max-w-7xl mx-auto px-4">
